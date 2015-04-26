@@ -8,13 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		D03482F31AECBE1200022572 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03482F21AECBE1200022572 /* AppDelegate.swift */; };
-		D03482F51AECBE1200022572 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D03482F41AECBE1200022572 /* GameScene.sks */; };
 		D03482F71AECBE1200022572 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03482F61AECBE1200022572 /* GameScene.swift */; };
 		D03482F91AECBE1200022572 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03482F81AECBE1200022572 /* GameViewController.swift */; };
 		D03482FC1AECBE1200022572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D03482FA1AECBE1200022572 /* Main.storyboard */; };
 		D03482FE1AECBE1200022572 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D03482FD1AECBE1200022572 /* Images.xcassets */; };
 		D03483011AECBE1200022572 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03482FF1AECBE1200022572 /* LaunchScreen.xib */; };
 		D034830D1AECBE1200022572 /* ZombieCongaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D034830C1AECBE1200022572 /* ZombieCongaTests.swift */; };
+		D034831D1AECC2FD00022572 /* background1.png in Resources */ = {isa = PBXBuildFile; fileRef = D03483171AECC2FD00022572 /* background1.png */; };
+		D034831E1AECC2FD00022572 /* background2.png in Resources */ = {isa = PBXBuildFile; fileRef = D03483181AECC2FD00022572 /* background2.png */; };
+		D034831F1AECC2FD00022572 /* MainMenu.png in Resources */ = {isa = PBXBuildFile; fileRef = D03483191AECC2FD00022572 /* MainMenu.png */; };
+		D03483201AECC2FD00022572 /* YouLose.png in Resources */ = {isa = PBXBuildFile; fileRef = D034831A1AECC2FD00022572 /* YouLose.png */; };
+		D03483211AECC2FD00022572 /* YouWin.png in Resources */ = {isa = PBXBuildFile; fileRef = D034831B1AECC2FD00022572 /* YouWin.png */; };
+		D03483221AECC2FD00022572 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D034831C1AECC2FD00022572 /* sprites.atlas */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,7 +36,6 @@
 		D03482ED1AECBE1200022572 /* ZombieConga.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZombieConga.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D03482F11AECBE1200022572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D03482F21AECBE1200022572 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D03482F41AECBE1200022572 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
 		D03482F61AECBE1200022572 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		D03482F81AECBE1200022572 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		D03482FB1AECBE1200022572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -40,6 +44,12 @@
 		D03483061AECBE1200022572 /* ZombieCongaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ZombieCongaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D034830B1AECBE1200022572 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D034830C1AECBE1200022572 /* ZombieCongaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZombieCongaTests.swift; sourceTree = "<group>"; };
+		D03483171AECC2FD00022572 /* background1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background1.png; sourceTree = "<group>"; };
+		D03483181AECC2FD00022572 /* background2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background2.png; sourceTree = "<group>"; };
+		D03483191AECC2FD00022572 /* MainMenu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = MainMenu.png; sourceTree = "<group>"; };
+		D034831A1AECC2FD00022572 /* YouLose.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouLose.png; sourceTree = "<group>"; };
+		D034831B1AECC2FD00022572 /* YouWin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouWin.png; sourceTree = "<group>"; };
+		D034831C1AECC2FD00022572 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,8 +91,9 @@
 		D03482EF1AECBE1200022572 /* ZombieConga */ = {
 			isa = PBXGroup;
 			children = (
+				D03483161AECC2FD00022572 /* Images */,
+				D034831C1AECC2FD00022572 /* sprites.atlas */,
 				D03482F21AECBE1200022572 /* AppDelegate.swift */,
-				D03482F41AECBE1200022572 /* GameScene.sks */,
 				D03482F61AECBE1200022572 /* GameScene.swift */,
 				D03482F81AECBE1200022572 /* GameViewController.swift */,
 				D03482FA1AECBE1200022572 /* Main.storyboard */,
@@ -116,6 +127,18 @@
 				D034830B1AECBE1200022572 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D03483161AECC2FD00022572 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				D03483171AECC2FD00022572 /* background1.png */,
+				D03483181AECC2FD00022572 /* background2.png */,
+				D03483191AECC2FD00022572 /* MainMenu.png */,
+				D034831A1AECC2FD00022572 /* YouLose.png */,
+				D034831B1AECC2FD00022572 /* YouWin.png */,
+			);
+			path = Images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,10 +221,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03483211AECC2FD00022572 /* YouWin.png in Resources */,
+				D03483221AECC2FD00022572 /* sprites.atlas in Resources */,
 				D03483011AECBE1200022572 /* LaunchScreen.xib in Resources */,
+				D034831F1AECC2FD00022572 /* MainMenu.png in Resources */,
+				D03483201AECC2FD00022572 /* YouLose.png in Resources */,
 				D03482FE1AECBE1200022572 /* Images.xcassets in Resources */,
-				D03482F51AECBE1200022572 /* GameScene.sks in Resources */,
+				D034831E1AECC2FD00022572 /* background2.png in Resources */,
 				D03482FC1AECBE1200022572 /* Main.storyboard in Resources */,
+				D034831D1AECC2FD00022572 /* background1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
