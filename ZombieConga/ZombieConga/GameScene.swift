@@ -32,7 +32,8 @@ class GameScene: SKScene {
   let playableRect: CGRect
   var lastTouchLocation: CGPoint?
   let zombieRotateRadiansPerSec:CGFloat = 4.0 * π
-  
+  let zombieAnimation: SKAction
+    
   override init(size: CGSize) {
     let maxAspectRatio:CGFloat = 16.0/9.0 // 1
     let playableHeight = size.width / maxAspectRatio // 2
@@ -40,6 +41,18 @@ class GameScene: SKScene {
     playableRect = CGRect(x: 0, y: playableMargin, 
                           width: size.width,
                           height: playableHeight) // 4
+    
+    // 1
+    var textures:[SKTexture] = []
+    // 2
+    for i in 1...4 {
+        textures.append(SKTexture(imageNamed: "zombie\(i)")) }
+    // 3
+    textures.append(textures[2])
+    textures.append(textures[1])
+    // 4
+    zombieAnimation = SKAction.animateWithTextures(textures, timePerFrame: 0.1)
+    
     super.init(size: size) // 5
   }
 
@@ -72,12 +85,14 @@ class GameScene: SKScene {
     
     zombie.position = CGPoint(x: 400, y: 400)
     addChild(zombie)
-    
+    zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
+        
     //zombie.setScale(2.0) // SKNode method
     debugDrawPlayableArea()
     //spawnEnemy()
     runAction(SKAction.repeatActionForever( SKAction.sequence([SKAction.runBlock(spawnEnemy),
         SKAction.waitForDuration(2.0)])))
+        
   }
   
   override func update(currentTime: NSTimeInterval) {
