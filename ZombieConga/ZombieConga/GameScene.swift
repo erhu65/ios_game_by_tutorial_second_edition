@@ -168,11 +168,11 @@ class GameScene: SKScene {
 
     func spawnEnemy() {
         let enemy = SKSpriteNode(imageNamed: "enemy")
-        enemy.position = CGPoint(x: size.width + enemy.size.width/2, y: CGFloat.random(
-                min: CGRectGetMinY(playableRect) + enemy.size.height/2,
-                max: CGRectGetMaxY(playableRect) - enemy.size.height/2))
+        enemy.position = CGPoint(x: size.width + enemy.size.width/2, y: CGFloat.random(min: CGRectGetMinY(playableRect) + enemy.size.height/2,max: CGRectGetMaxY(playableRect) - enemy.size.height/2))
         addChild(enemy)
         let actionMove = SKAction.moveToX(-enemy.size.width/2, duration: 2.0)
-        enemy.runAction(actionMove)
+        let actionRemove = SKAction.removeFromParent()
+        enemy.runAction(SKAction.sequence([actionMove, actionRemove]))
+    
     }
 }
