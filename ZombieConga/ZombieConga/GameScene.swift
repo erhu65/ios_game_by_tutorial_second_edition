@@ -177,9 +177,8 @@ class GameScene: SKScene {
         let actionMove = SKAction.moveTo(
                 CGPoint(x: -enemy.size.width/2, y: enemy.position.y), duration:1.0)
     
-        // 3
-        let sequence = SKAction.sequence([actionMidMove, actionMove]) // 4
+        let wait = SKAction.waitForDuration(0.25)
+        let sequence = SKAction.sequence([actionMidMove, wait, actionMove])
         enemy.runAction(sequence)
-    
     }
 }
