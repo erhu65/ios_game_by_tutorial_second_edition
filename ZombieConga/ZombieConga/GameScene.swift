@@ -168,8 +168,18 @@ class GameScene: SKScene {
         let enemy = SKSpriteNode(imageNamed: "enemy")
         enemy.position = CGPoint(x: size.width + enemy.size.width/2, y: size.height/2)
         addChild(enemy)
+    
+        // 1
+        let actionMidMove = SKAction.moveTo( CGPoint(x: size.width/2,
+                y: CGRectGetMinY(playableRect) + enemy.size.height/2), duration: 1.0)
+    
+        // 2
         let actionMove = SKAction.moveTo(
-            CGPoint(x: -enemy.size.width/2, y: enemy.position.y), duration: 2.0)
-        enemy.runAction(actionMove)
+                CGPoint(x: -enemy.size.width/2, y: enemy.position.y), duration:1.0)
+    
+        // 3
+        let sequence = SKAction.sequence([actionMidMove, actionMove]) // 4
+        enemy.runAction(sequence)
+    
     }
 }
