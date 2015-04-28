@@ -121,8 +121,12 @@ class GameScene: SKScene {
     }
     
     boundsCheckZombie()
-    checkCollisions()
+    //checkCollisions()
   }
+    
+    override func didEvaluateActions() {
+        checkCollisions()
+    }
 
   func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
     let amountToMove = velocity * CGFloat(dt)
