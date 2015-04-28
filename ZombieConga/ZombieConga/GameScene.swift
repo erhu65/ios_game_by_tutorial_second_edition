@@ -85,7 +85,7 @@ class GameScene: SKScene {
     
     zombie.position = CGPoint(x: 400, y: 400)
     addChild(zombie)
-    zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
+    //zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
         
     //zombie.setScale(2.0) // SKNode method
     debugDrawPlayableArea()
@@ -110,6 +110,7 @@ class GameScene: SKScene {
       if (diff.length() <= zombieMovePointsPerSec * CGFloat(dt)) {
         zombie.position = lastTouchLocation!
         velocity = CGPointZero
+        stopZombieAnimation()
       } else {
         moveSprite(zombie, velocity: velocity)
         rotateSprite(zombie, direction: velocity, rotateRadiansPerSec: zombieRotateRadiansPerSec)
@@ -127,6 +128,7 @@ class GameScene: SKScene {
   }
 
   func moveZombieToward(location: CGPoint) {
+    startZombieAnimation()
     let offset = location - zombie.position
     let direction = offset.normalized()
     velocity = direction * zombieMovePointsPerSec
@@ -190,4 +192,17 @@ class GameScene: SKScene {
         enemy.runAction(SKAction.sequence([actionMove, actionRemove]))
     
     }
+    
+    func startZombieAnimation() {
+        if zombie.actionForKey("animation") == nil {
+            zombie.runAction(
+            SKAction.repeatActionForever(zombieAnimation), withKey: "animation")
+        }
+    }
+    
+    func stopZombieAnimation() {
+        zombie.removeActionForKey("animation")
+    }
+    
+    
 }
