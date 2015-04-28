@@ -21,6 +21,11 @@
 		35F8C8A719F83E3E004BAF77 /* YouWin.png in Resources */ = {isa = PBXBuildFile; fileRef = 35F8C8A119F83E3E004BAF77 /* YouWin.png */; };
 		35F8C8A819F83E3E004BAF77 /* sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 35F8C8A219F83E3E004BAF77 /* sprites.atlas */; };
 		35F8C8AA19F842D1004BAF77 /* MyUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35F8C8A919F842D1004BAF77 /* MyUtils.swift */; };
+		D0EC5BEC1AEFE2BD00223283 /* backgroundMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D0EC5BE71AEFE2BC00223283 /* backgroundMusic.mp3 */; };
+		D0EC5BED1AEFE2BD00223283 /* hitCat.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EC5BE81AEFE2BC00223283 /* hitCat.wav */; };
+		D0EC5BEE1AEFE2BD00223283 /* hitCatLady.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EC5BE91AEFE2BD00223283 /* hitCatLady.wav */; };
+		D0EC5BEF1AEFE2BD00223283 /* lose.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EC5BEA1AEFE2BD00223283 /* lose.wav */; };
+		D0EC5BF01AEFE2BD00223283 /* win.wav in Resources */ = {isa = PBXBuildFile; fileRef = D0EC5BEB1AEFE2BD00223283 /* win.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +57,11 @@
 		35F8C8A119F83E3E004BAF77 /* YouWin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = YouWin.png; sourceTree = "<group>"; };
 		35F8C8A219F83E3E004BAF77 /* sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = sprites.atlas; sourceTree = "<group>"; };
 		35F8C8A919F842D1004BAF77 /* MyUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyUtils.swift; sourceTree = "<group>"; };
+		D0EC5BE71AEFE2BC00223283 /* backgroundMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = backgroundMusic.mp3; sourceTree = "<group>"; };
+		D0EC5BE81AEFE2BC00223283 /* hitCat.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitCat.wav; sourceTree = "<group>"; };
+		D0EC5BE91AEFE2BD00223283 /* hitCatLady.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = hitCatLady.wav; sourceTree = "<group>"; };
+		D0EC5BEA1AEFE2BD00223283 /* lose.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = lose.wav; sourceTree = "<group>"; };
+		D0EC5BEB1AEFE2BD00223283 /* win.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = win.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +145,7 @@
 		35F8C89C19F83E3E004BAF77 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				D0EC5BE61AEFE2BC00223283 /* Sounds */,
 				35F8C89D19F83E3E004BAF77 /* background1.png */,
 				35F8C89E19F83E3E004BAF77 /* background2.png */,
 				35F8C89F19F83E3E004BAF77 /* MainMenu.png */,
@@ -142,6 +153,18 @@
 				35F8C8A119F83E3E004BAF77 /* YouWin.png */,
 			);
 			path = Images;
+			sourceTree = "<group>";
+		};
+		D0EC5BE61AEFE2BC00223283 /* Sounds */ = {
+			isa = PBXGroup;
+			children = (
+				D0EC5BE71AEFE2BC00223283 /* backgroundMusic.mp3 */,
+				D0EC5BE81AEFE2BC00223283 /* hitCat.wav */,
+				D0EC5BE91AEFE2BD00223283 /* hitCatLady.wav */,
+				D0EC5BEA1AEFE2BD00223283 /* lose.wav */,
+				D0EC5BEB1AEFE2BD00223283 /* win.wav */,
+			);
+			path = Sounds;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -228,10 +251,15 @@
 				35F8C8A819F83E3E004BAF77 /* sprites.atlas in Resources */,
 				35F8C88719F83D8B004BAF77 /* LaunchScreen.xib in Resources */,
 				35F8C8A519F83E3E004BAF77 /* MainMenu.png in Resources */,
+				D0EC5BEF1AEFE2BD00223283 /* lose.wav in Resources */,
 				35F8C8A619F83E3E004BAF77 /* YouLose.png in Resources */,
 				35F8C88419F83D8B004BAF77 /* Images.xcassets in Resources */,
+				D0EC5BF01AEFE2BD00223283 /* win.wav in Resources */,
 				35F8C8A419F83E3E004BAF77 /* background2.png in Resources */,
 				35F8C88219F83D8B004BAF77 /* Main.storyboard in Resources */,
+				D0EC5BEC1AEFE2BD00223283 /* backgroundMusic.mp3 in Resources */,
+				D0EC5BEE1AEFE2BD00223283 /* hitCatLady.wav in Resources */,
+				D0EC5BED1AEFE2BD00223283 /* hitCat.wav in Resources */,
 				35F8C8A319F83E3E004BAF77 /* background1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
