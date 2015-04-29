@@ -20,30 +20,6 @@
  * THE SOFTWARE.
  */
 
-/*
- 
- Challenge 1 answers:
- 
- 1) followPath(duration:)
- 2) fadeAlphaTo(duration:)
- 3) Explanation follows:
- 
- Custom actions allow you to easily make a node do soemthing over time that there isn't already an action for. The ActionsCatalog demonstrates three kinds of custom actions: making a node blink, jump, or follow a sin wave.
- 
- Custom actions give you a node to work with, and how much time has elapsed. Your job is to update something on the node, based on the percentage of how much time has elapsed vs. the passed in duration.
- 
- As an example, here's an explanation of the blink action demo in ActionsCatalog:
- 
- 1) Divide the duration by the number of blinks the desired in that time period. Call that a "slice" of time. In each slice, the node should be visible for half the time, and invisible for the other half. That is what will make the node appear to blink.
- 
- 2) The modulus operator (%) works with fractions as well as integers in Swift. It basically returns the remainder of the first parameter (elapsedTime) after being divided by the second parameter (slice). So in this example, it gives you the amount of time that has elapsed in this "slice" calculated ealrier.
- 
- 3) The hidden property on a node controls whether it is rendered or not. If the remainder calculated above is in the second half of the slice, it should be hidden (invisible). Otherwise it will be visible. Hence, the blink effect!
-
-Note that you can also accomplish a blink effect with a combination of hide() and unhide() actions, as you see in HideScene. 
-
- */
-
 import SpriteKit
 
 class GameScene: SKScene {
@@ -63,9 +39,9 @@ class GameScene: SKScene {
     "hitCatLady.wav", waitForCompletion: false)
   var invincible = false
   let catMovePointsPerSec:CGFloat = 480.0
-    var lives = 5
-    var gameOver = false
-    
+  var lives = 5
+  var gameOver = false
+
   override init(size: CGSize) {
     let maxAspectRatio:CGFloat = 16.0/9.0
     let playableHeight = size.width / maxAspectRatio
@@ -73,17 +49,13 @@ class GameScene: SKScene {
     playableRect = CGRect(x: 0, y: playableMargin, 
                           width: size.width,
                           height: playableHeight)
-    // 1
     var textures:[SKTexture] = []
-    // 2
     for i in 1...4 {
       textures.append(SKTexture(imageNamed: "zombie\(i)"))
     }
-    // 3
     textures.append(textures[2])
     textures.append(textures[1])
 
-    // 4
     zombieAnimation = SKAction.repeatActionForever(
       SKAction.animateWithTextures(textures, timePerFrame: 0.1))
     
@@ -116,8 +88,8 @@ class GameScene: SKScene {
     
     zombie.position = CGPoint(x: 400, y: 400)
     zombie.zPosition = 100
-    //zombie.runAction(SKAction.repeatActionForever(zombieAnimation))
     addChild(zombie)
+    
     runAction(SKAction.repeatActionForever(
       SKAction.sequence([SKAction.runBlock(spawnEnemy),
                          SKAction.waitForDuration(2.0)])))
@@ -126,7 +98,6 @@ class GameScene: SKScene {
                          SKAction.waitForDuration(1.0)])))
   
     //debugDrawPlayableArea()
-    
   }
   
   override func update(currentTime: NSTimeInterval) {
@@ -151,22 +122,22 @@ class GameScene: SKScene {
     }
     
     boundsCheckZombie()
-    //checkCollisions()
     moveTrain()
+
     if lives <= 0 && !gameOver {
-        gameOver = true
-        println("You lose!")
-        backgroundMusicPlayer.stop()
-        // 1
-        let gameOverScene = GameOverScene(size: size, won: false)
-        gameOverScene.scaleMode = scaleMode
-        // 2
-        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        // 3
-        view?.presentScene(gameOverScene, transition: reveal)
-        
-    }
+      gameOver = true
+      println("You lose!")
+      backgroundMusicPlayer.stop()
   
+      // 1
+      let gameOverScene = GameOverScene(size: size, won: false)
+      gameOverScene.scaleMode = scaleMode
+      // 2
+      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+      // 3
+      view?.presentScene(gameOverScene, transition: reveal)
+    }
+
   }
 
   func moveSprite(sprite: SKSpriteNode, velocity: CGPoint) {
@@ -259,7 +230,6 @@ class GameScene: SKScene {
   }
 
   func spawnCat() {
-    // 1
     let cat = SKSpriteNode(imageNamed: "cat")
     cat.name = "cat"
     cat.position = CGPoint(
@@ -269,7 +239,7 @@ class GameScene: SKScene {
                         max: CGRectGetMaxY(playableRect)))
     cat.setScale(0)
     addChild(cat)
-    // 2
+
     let appear = SKAction.scaleTo(1.0, duration: 0.5)
 
     cat.zRotation = -π / 16.0
@@ -305,8 +275,7 @@ class GameScene: SKScene {
     runAction(enemyCollisionSound)
     loseCats()
     lives--
-    
-    
+
     invincible = true
     
     let blinkTimes = 10.0
@@ -358,13 +327,14 @@ class GameScene: SKScene {
   }
 
   func moveTrain() {
+    
     var targetPosition = zombie.position
     var trainCount = 0
     
     enumerateChildNodesWithName("train") { node, stop in
-        trainCount++
+      trainCount++
+
       if !node.hasActions() {
-        
         let actionDuration = 0.3
         let offset = targetPosition - node.position
         let direction = offset.normalized()
@@ -374,48 +344,48 @@ class GameScene: SKScene {
         node.runAction(moveAction)
       }
       targetPosition = node.position
+      
     }
-    
+  
     if trainCount >= 30 && !gameOver {
-        gameOver = true
-        println("You win!")
-        backgroundMusicPlayer.stop()
-        
-        // 1
-        let gameOverScene = GameOverScene(size: size, won: true)
-        gameOverScene.scaleMode = scaleMode
-        // 2
-        let reveal = SKTransition.flipHorizontalWithDuration(0.5)
-        // 3
-        view?.presentScene(gameOverScene, transition: reveal)
-   
+      gameOver = true
+      println("You win!")
+      backgroundMusicPlayer.stop()
+      // 1
+      let gameOverScene = GameOverScene(size: size, won: true)
+      gameOverScene.scaleMode = scaleMode
+      // 2
+      let reveal = SKTransition.flipHorizontalWithDuration(0.5)
+      // 3
+      view?.presentScene(gameOverScene, transition: reveal)
     }
-    
   }
-    func loseCats() {
-        // 1
-        var loseCount = 0
-        enumerateChildNodesWithName("train") { node, stop in
-            // 2
-            var randomSpot = node.position
-            randomSpot.x += CGFloat.random(min: -100, max: 100)
-            randomSpot.y += CGFloat.random(min: -100, max: 100)
-            // 3
-            node.name = ""
-            node.runAction(
-                SKAction.sequence([
-                    SKAction.group([
-                        SKAction.rotateByAngle(π*4, duration: 1.0),
-                        SKAction.moveTo(randomSpot, duration: 1.0),
-                        SKAction.scaleTo(0, duration: 1.0)
-                        ]),
-                    SKAction.removeFromParent()
-                    ]))
-            // 4
-            loseCount++
-            if loseCount >= 2 {
-                stop.memory = true
-            }
-        }
+
+  func loseCats() {
+    // 1
+    var loseCount = 0
+    enumerateChildNodesWithName("train") { node, stop in
+      // 2
+      var randomSpot = node.position
+      randomSpot.x += CGFloat.random(min: -100, max: 100)
+      randomSpot.y += CGFloat.random(min: -100, max: 100)
+      // 3
+      node.name = ""
+      node.runAction(
+        SKAction.sequence([
+          SKAction.group([
+            SKAction.rotateByAngle(π*4, duration: 1.0),
+            SKAction.moveTo(randomSpot, duration: 1.0),
+            SKAction.scaleTo(0, duration: 1.0)
+          ]),
+          SKAction.removeFromParent()
+        ]))
+      // 4
+      loseCount++
+      if loseCount >= 2 {
+        stop.memory = true
+      }
     }
+  }
+
 }
