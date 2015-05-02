@@ -51,20 +51,20 @@ class GameScene: SKScene {
     
     super.init(size: size)
     
-//    setupSceneLayers()
-//    setUpUI()
-//    setupEntities()
+    setupSceneLayers()
+    setUpUI()
+    setupEntities()
   }
     
-    override func didMoveToView(view: SKView) {
-        let myLabel = SKLabelNode(fontNamed:"Edit Undo Line BRK")
-        myLabel.text = "Hello, World!"
-        myLabel.fontSize = 40
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame),
-        y:CGRectGetMidY(self.frame))
-        myLabel.horizontalAlignmentMode = .Left
-        self.addChild(myLabel)
-    }
+//    override func didMoveToView(view: SKView) {
+//        let myLabel = SKLabelNode(fontNamed:"Edit Undo Line BRK")
+//        myLabel.text = "Hello, World!"
+//        myLabel.fontSize = 40
+//        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame),
+//        y:CGRectGetMidY(self.frame))
+//        myLabel.horizontalAlignmentMode = .Left
+//        self.addChild(myLabel)
+//    }
   
   func setupSceneLayers() {
     playerLayerNode.zPosition = 50
@@ -84,7 +84,7 @@ class GameScene: SKScene {
       CGPoint(x:0, y: size.height - hudHeight)
     hudBarBackground.anchorPoint = CGPointZero
     hudLayerNode.addChild(hudBarBackground)
-    
+     
     // 1
     scoreLabel.fontSize = 50
     scoreLabel.text = "Score: 0"
@@ -103,7 +103,7 @@ class GameScene: SKScene {
       SKAction.scaleTo(1.0, duration: 0.1)])
     scoreLabel.runAction(
       SKAction.repeatAction(scoreFlashAction, count: 20))
-    
+
     // 1
     let playerHealthBackgroundLabel =
       SKLabelNode(fontNamed: "Arial")
@@ -161,16 +161,16 @@ class GameScene: SKScene {
   }
 
   override func update(currentTime: NSTimeInterval) {
-//    // 1
-//    var newPoint:CGPoint = playerShip.position + deltaPoint
-//    // 2
-//    newPoint.x.clamp(
-//      CGRectGetMinX(playableRect), CGRectGetMaxX(playableRect))
-//    newPoint.y.clamp(
-//      CGRectGetMinY(playableRect),CGRectGetMaxY(playableRect))
-//    // 3
-//    playerShip.position = newPoint
-//    deltaPoint = CGPointZero
+    // 1
+    var newPoint:CGPoint = playerShip.position + deltaPoint
+    // 2
+    newPoint.x.clamp(
+      CGRectGetMinX(playableRect), CGRectGetMaxX(playableRect))
+    newPoint.y.clamp(
+      CGRectGetMinY(playableRect),CGRectGetMaxY(playableRect))
+    // 3
+    playerShip.position = newPoint
+    deltaPoint = CGPointZero
   }
 
 }
