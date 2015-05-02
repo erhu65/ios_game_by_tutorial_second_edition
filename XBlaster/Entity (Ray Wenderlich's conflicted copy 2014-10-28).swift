@@ -23,21 +23,29 @@
 import SpriteKit
 
 class Entity: SKSpriteNode {
+
+  // This structure is used to provide bit masks for the physics collision detection
+  // implemented within each enemy and the GameScene
+  struct ColliderType {
+    static var Player: UInt32 = 1
+    static var Enemy: UInt32 = 2
+    static var Bullet: UInt32 = 4
+  }
+  
+  required init(coder aDecoder: NSCoder) {
+    [super.init(coder: aDecoder)]
+  }
+
   // 1
   var direction = CGPointZero
   var health = 100.0
   var maxHealth = 100.0
-
-    required init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-  }
   // 2
   init(position: CGPoint, texture: SKTexture) {
     super.init(texture: texture, color: SKColor.whiteColor(),
                size: texture.size())
     self.position = position
   }
-
   // 3
   class func generateTexture() -> SKTexture? {
     // Overridden by subclasses
@@ -47,4 +55,10 @@ class Entity: SKSpriteNode {
   func update(delta: NSTimeInterval) {
     // Overridden by subclasses
   }
+  
+  func collidedWith(body: SKPhysicsBody, contact: SKPhysicsContact) {
+    // Overridden by subsclasses to implement actions to be carried out when an entity
+    // collides with another entity e.g. PlayerShip or Bullet
+  }  
+  
 }

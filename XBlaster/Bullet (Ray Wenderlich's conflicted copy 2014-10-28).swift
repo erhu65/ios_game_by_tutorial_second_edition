@@ -10,16 +10,18 @@ import SpriteKit
 
 class Bullet: Entity {
 
-  required init(coder aDecoder: NSCoder) {
-      super.init(coder: aDecoder)
-  }
-
   init(entityPosition: CGPoint) {
     let entityTexture = Bullet.generateTexture()!
     
     super.init(position: entityPosition, texture: entityTexture)
     
     name = "bullet"
+    
+    configureCollisionBody()
+  }
+
+  required init(coder aDecoder: NSCoder) {
+      [super.init(coder: aDecoder)]
   }
   
   override class func generateTexture() -> SKTexture? {
@@ -42,6 +44,20 @@ class Bullet: Entity {
     })
     
     return SharedTexture.texture
+  }
+  
+  func configureCollisionBody() {
+    // Set the PlayerShip class for details of how the physics body configuration is used.
+    // More details are provided in Chapter 9 "Beginner Physics" in the book also
+    physicsBody = SKPhysicsBody(circleOfRadius:5)
+    physicsBody?.affectedByGravity = false
+    physicsBody?.categoryBitMask = ColliderType.Bullet
+    physicsBody?.collisionBitMask = 0
+    physicsBody?.contactTestBitMask = ColliderType.Enemy
+  }
+  
+  override func collidedWith(body: SKPhysicsBody, contact: SKPhysicsContact) {
+    removeFromParent()
   }
 
 }
