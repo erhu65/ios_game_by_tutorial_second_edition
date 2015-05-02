@@ -81,11 +81,14 @@ class GameScene: SKScene {
     playBackgroundMusic("backgroundMusic.mp3")
     backgroundColor = SKColor.whiteColor()
   
-    let background = backgroundNode()
-    background.anchorPoint = CGPointZero
-    background.position = CGPointZero
-    background.name = "background"
-    addChild(background)
+    for i in 0...1 {
+        let background = backgroundNode()
+        background.anchorPoint = CGPointZero
+        background.position =
+            CGPoint(x: CGFloat(i)*background.size.width, y: 0)
+        background.name = "background"
+        addChild(background)
+    }
     
     zombie.position = CGPoint(x: 400, y: 400)
     zombie.zPosition = 100
@@ -416,10 +419,14 @@ class GameScene: SKScene {
     func moveBackground() {
         enumerateChildNodesWithName("background") { node, _ in
             let background = node as! SKSpriteNode
-            let backgroundVelocity =
-            CGPoint(x: -self.backgroundMovePointsPerSec, y: 0)
+            let backgroundVelocity = CGPoint(x: -self.backgroundMovePointsPerSec, y: 0)
             let amountToMove = backgroundVelocity * CGFloat(self.dt)
             background.position += amountToMove
+            if background.position.x <= -background.size.width {
+                background.position = CGPoint(
+                x: background.position.x + background.size.width*2,
+                y: background.position.y)
+            }
         }
     }
     
