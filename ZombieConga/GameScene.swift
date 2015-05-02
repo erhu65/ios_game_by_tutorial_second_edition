@@ -41,6 +41,7 @@ class GameScene: SKScene {
   let catMovePointsPerSec:CGFloat = 480.0
   var lives = 5
   var gameOver = false
+  let backgroundMovePointsPerSec: CGFloat = 200.0
 
   override init(size: CGSize) {
     let maxAspectRatio:CGFloat = 16.0/9.0
@@ -80,10 +81,10 @@ class GameScene: SKScene {
     playBackgroundMusic("backgroundMusic.mp3")
     backgroundColor = SKColor.whiteColor()
   
-    let background = SKSpriteNode(imageNamed: "background1")
-    background.position = CGPoint(x: size.width/2, y: size.height/2)
-    background.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-    background.zPosition = -1
+    let background = backgroundNode()
+    background.anchorPoint = CGPointZero
+    background.position = CGPointZero
+    background.name = "background"
     addChild(background)
     
     zombie.position = CGPoint(x: 400, y: 400)
@@ -100,6 +101,30 @@ class GameScene: SKScene {
     //debugDrawPlayableArea()
   }
   
+
+    func backgroundNode() -> SKSpriteNode {
+        // 1
+        let backgroundNode = SKSpriteNode()
+        backgroundNode.anchorPoint = CGPointZero
+        backgroundNode.name = "background"
+        // 2
+        let background1 = SKSpriteNode(imageNamed: "background1")
+        background1.anchorPoint = CGPointZero
+        background1.position = CGPoint(x: 0, y: 0)
+        backgroundNode.addChild(background1)
+        // 3
+        let background2 = SKSpriteNode(imageNamed: "background2")
+        background2.anchorPoint = CGPointZero
+        background2.position =
+            CGPoint(x: background1.size.width, y: 0)
+        backgroundNode.addChild(background2)
+        // 4
+        backgroundNode.size = CGSize(
+            width: background1.size.width + background2.size.width,
+            height: background1.size.height)
+        return backgroundNode
+    }
+    
   override func update(currentTime: NSTimeInterval) {
   
     if lastUpdateTime > 0 {
@@ -123,7 +148,7 @@ class GameScene: SKScene {
     
     boundsCheckZombie()
     moveTrain()
-
+    moveBackground()
     if lives <= 0 && !gameOver {
       gameOver = true
       println("You lose!")
@@ -388,4 +413,14 @@ class GameScene: SKScene {
     }
   }
 
+    func moveBackground() {
+        enumerateChildNodesWithName("background") { node, _ in
+            let background = node as! SKSpriteNode
+            let backgroundVelocity =
+            CGPoint(x: -self.backgroundMovePointsPerSec, y: 0)
+            let amountToMove = backgroundVelocity * CGFloat(self.dt)
+            background.position += amountToMove
+        }
+    }
+    
 }

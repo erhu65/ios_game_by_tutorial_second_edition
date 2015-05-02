@@ -1,0 +1,4 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
+options: "166fed6717692ace8be34f53a8b2d919"
+inputs: 
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieCongaTests/ZombieCongaTests.swift"

@@ -1,0 +1,9 @@
+version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
+options: "fe538166f732b8a2d0b97da55b438002"
+inputs: 
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/MainMenuScene.swift"
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/GameOverScene.swift"
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/GameScene.swift"
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/GameViewController.swift"
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/AppDelegate.swift"
+- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/git/ZombieConga-Starter/ZombieConga/MyUtils.swift"
