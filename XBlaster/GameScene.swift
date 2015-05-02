@@ -62,6 +62,7 @@ class GameScene: SKScene {
         myLabel.fontSize = 40
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame),
         y:CGRectGetMidY(self.frame))
+        myLabel.horizontalAlignmentMode = .Left
         self.addChild(myLabel)
     }
   
