@@ -32,6 +32,8 @@
 		8FBAE95F19C04C7A00DE2EF9 /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAE95319C04C7A00DE2EF9 /* SKTEffects.swift */; };
 		8FBAE96019C04C7A00DE2EF9 /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAE95419C04C7A00DE2EF9 /* SKTTimingFunctions.swift */; };
 		8FBAE96119C04C7A00DE2EF9 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAE95519C04C7A00DE2EF9 /* Vector3.swift */; };
+		D09655651AF6217D00BD117A /* engine.sks in Resources */ = {isa = PBXBuildFile; fileRef = D09655631AF6217D00BD117A /* engine.sks */; };
+		D09655661AF6217D00BD117A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D09655641AF6217D00BD117A /* spark.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +64,8 @@
 		8FBAE95319C04C7A00DE2EF9 /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		8FBAE95419C04C7A00DE2EF9 /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		8FBAE95519C04C7A00DE2EF9 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
+		D09655631AF6217D00BD117A /* engine.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = engine.sks; sourceTree = "<group>"; };
+		D09655641AF6217D00BD117A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +98,7 @@
 		35CB3006198D697600C8515C /* XBlaster */ = {
 			isa = PBXGroup;
 			children = (
+				D09655621AF6211A00BD117A /* Particles */,
 				8FBAE94919C04C7A00DE2EF9 /* SKTUtils */,
 				35CB3054198D7C4400C8515C /* AI */,
 				35CB3047198D73CB00C8515C /* Entities */,
@@ -172,6 +177,15 @@
 			path = SKTUtils;
 			sourceTree = "<group>";
 		};
+		D09655621AF6211A00BD117A /* Particles */ = {
+			isa = PBXGroup;
+			children = (
+				D09655631AF6217D00BD117A /* engine.sks */,
+				D09655641AF6217D00BD117A /* spark.png */,
+			);
+			name = Particles;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,9 +244,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D09655661AF6217D00BD117A /* spark.png in Resources */,
 				35CB3015198D697600C8515C /* Images.xcassets in Resources */,
 				8F5EE08F19C05B55005B6752 /* edunline.ttf in Resources */,
 				35CB3013198D697600C8515C /* Main.storyboard in Resources */,
+				D09655651AF6217D00BD117A /* engine.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
