@@ -57,6 +57,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     ]))
   let tapScreenLabel = SKLabelNode(fontNamed: "Edit Undo Line BRK")
 
+  let particleLayerNode = SKNode()
+    
   override init(size: CGSize) {
     // Calculate playable margin
     let maxAspectRatio: CGFloat = 16.0/9.0 // iPhone 5"
@@ -114,6 +116,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         speed: -20, lifetime: size.height / 5, scale: 0.1,
         birthRate: 5, color: SKColor.darkGrayColor())
     starfieldNode.addChild(emitterNode)
+    
+    particleLayerNode.zPosition = 10
+    addChild(particleLayerNode)
     
   }
   

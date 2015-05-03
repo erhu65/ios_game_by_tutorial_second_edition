@@ -34,6 +34,7 @@
 		8FBAE96119C04C7A00DE2EF9 /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBAE95519C04C7A00DE2EF9 /* Vector3.swift */; };
 		D09655651AF6217D00BD117A /* engine.sks in Resources */ = {isa = PBXBuildFile; fileRef = D09655631AF6217D00BD117A /* engine.sks */; };
 		D09655661AF6217D00BD117A /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = D09655641AF6217D00BD117A /* spark.png */; };
+		D09655681AF6276900BD117A /* enemyDeath.sks in Resources */ = {isa = PBXBuildFile; fileRef = D09655671AF6276900BD117A /* enemyDeath.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		8FBAE95519C04C7A00DE2EF9 /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		D09655631AF6217D00BD117A /* engine.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = engine.sks; sourceTree = "<group>"; };
 		D09655641AF6217D00BD117A /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
+		D09655671AF6276900BD117A /* enemyDeath.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = enemyDeath.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 			isa = PBXGroup;
 			children = (
 				D09655631AF6217D00BD117A /* engine.sks */,
+				D09655671AF6276900BD117A /* enemyDeath.sks */,
 				D09655641AF6217D00BD117A /* spark.png */,
 			);
 			name = Particles;
@@ -245,6 +248,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D09655661AF6217D00BD117A /* spark.png in Resources */,
+				D09655681AF6276900BD117A /* enemyDeath.sks in Resources */,
 				35CB3015198D697600C8515C /* Images.xcassets in Resources */,
 				8F5EE08F19C05B55005B6752 /* edunline.ttf in Resources */,
 				35CB3013198D697600C8515C /* Main.storyboard in Resources */,
