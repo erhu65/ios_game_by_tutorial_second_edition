@@ -36,7 +36,7 @@ extension CGVector {
    * result as a new CGVector. An angle of 0 is assumed to point to the right.
    */
   init(angle: CGFloat) {
-    self.init(dx: cos(angle), dy: sin(angle))
+    return self.init(dx: cos(angle), dy: sin(angle))
   }
 
   /**

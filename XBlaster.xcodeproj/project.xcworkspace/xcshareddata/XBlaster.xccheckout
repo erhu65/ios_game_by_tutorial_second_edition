@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>E3349ADD-AA6F-4E84-AA7A-876AE4F4F29D</string>
+	<string>713D34EE-8E58-405E-A4BA-9F2914F7F94D</string>
 	<key>IDESourceControlProjectName</key>
-	<string>XBlaster</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0D2BA921FA406EFD2431CF1F5E35297B97CE7236</key>
 		<string>github.com:erhu65/ios_game_by_tutorial_second_edition.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>XBlaster.xcodeproj</string>
+	<string>XBlaster.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0D2BA921FA406EFD2431CF1F5E35297B97CE7236</key>

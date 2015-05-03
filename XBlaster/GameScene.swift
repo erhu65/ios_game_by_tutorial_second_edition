@@ -56,14 +56,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     SKAction.fadeInWithDuration(1)
     ]))
   let tapScreenLabel = SKLabelNode(fontNamed: "Edit Undo Line BRK")
-
+  
   let particleLayerNode = SKNode()
-    
-    let laserSound = SKAction.playSoundFileNamed("laser.wav",
-        waitForCompletion: false)
-    let explodeSound = SKAction.playSoundFileNamed("explode.wav",
-        waitForCompletion: false)
-    
+
+  let laserSound = SKAction.playSoundFileNamed("laser.wav",
+    waitForCompletion: false)
+  let explodeSound = SKAction.playSoundFileNamed("explode.wav",
+    waitForCompletion: false)
+  
   override init(size: CGSize) {
     // Calculate playable margin
     let maxAspectRatio: CGFloat = 16.0/9.0 // iPhone 5"
@@ -81,6 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupSceneLayers()
     setUpUI()
     setupEntities()
+    
     SKTAudio.sharedInstance().playBackgroundMusic("bgMusic.mp3")
   }
 
@@ -107,25 +108,23 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let starfieldNode = SKNode()
     starfieldNode.name = "starfieldNode"
     starfieldNode.addChild(starfieldEmitterNode(
-        speed: -48, lifetime: size.height / 23, scale: 0.2,
-        birthRate: 1, color: SKColor.lightGrayColor()))
-    
+      speed: -48, lifetime: size.height / 23, scale: 0.2,
+      birthRate: 1, color: SKColor.lightGrayColor()))
     addChild(starfieldNode)
     
     var emitterNode = starfieldEmitterNode(
-        speed: -32, lifetime: size.height / 10, scale: 0.14,
-        birthRate: 2, color: SKColor.grayColor())
+      speed: -32, lifetime: size.height / 10, scale: 0.14,
+      birthRate: 2, color: SKColor.grayColor())
     emitterNode.zPosition = -10
     starfieldNode.addChild(emitterNode)
     
     emitterNode = starfieldEmitterNode(
-        speed: -20, lifetime: size.height / 5, scale: 0.1,
-        birthRate: 5, color: SKColor.darkGrayColor())
+      speed: -20, lifetime: size.height / 5, scale: 0.1,
+      birthRate: 5, color: SKColor.darkGrayColor())
     starfieldNode.addChild(emitterNode)
     
     particleLayerNode.zPosition = 10
     addChild(particleLayerNode)
-    
   }
   
   func setUpUI() {
@@ -214,7 +213,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       entityPosition: CGPoint(x: size.width / 2, y: 100))
     playerLayerNode.addChild(playerShip)
     playerShip.createEngine()
-    
+  
     // Add some EnemyA entities to the scene
     for _ in 0..<3 {
       let enemy = EnemyA(entityPosition: CGPointMake(
@@ -316,8 +315,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 2: Add to scene
         bulletLayerNode.addChild(bullet)
+      
         playLaserSound()
-        
+      
         // 3: Sequence: Move up screen, remove from parent
         bullet.runAction(SKAction.sequence([
           SKAction.moveByX(0, y: size.height, duration: 1),
@@ -389,66 +389,64 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       }
     }
   }
-    
-    
-    func starfieldEmitterNode(
-        #speed: CGFloat, lifetime: CGFloat, scale: CGFloat,
-        birthRate: CGFloat, color: SKColor) -> SKEmitterNode {
-            
-            let star = SKLabelNode(fontNamed: "Helvetica")
-            star.fontSize = 80.0
-            star.text = "✦"
-            
-            let textureView = SKView()
-            let texture = textureView.textureFromNode(star)
-            texture.filteringMode = .Nearest
-            
-            let emitterNode = SKEmitterNode()
-            emitterNode.particleTexture = texture
-            emitterNode.particleBirthRate = birthRate
-            emitterNode.particleColor = color
-            emitterNode.particleLifetime = lifetime
-            emitterNode.particleSpeed = speed
-            emitterNode.particleScale = scale
-            emitterNode.particleColorBlendFactor = 1
-            emitterNode.position =
-                CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMaxY(frame))
-            emitterNode.particlePositionRange =
-                CGVector(dx: CGRectGetMaxX(frame), dy: 0)
-            
-            emitterNode.particleAction =
-                SKAction.repeatActionForever(SKAction.sequence([
-                    SKAction.rotateByAngle(CGFloat(-M_PI), duration: 1),
-                    SKAction.rotateByAngle(CGFloat(M_PI), duration: 1)]))
-            
-            emitterNode.particleSpeedRange = 16.0
-            
-            
-            //1
-            let twinkles = 20
-            let colorSequence = SKKeyframeSequence(capacity: twinkles*2)
-            //2
-            let twinkleTime = 1.0/CGFloat(twinkles)
-            for i in 0..<twinkles {
-                //3
-                colorSequence.addKeyframeValue(
-                    SKColor.whiteColor(),time: CGFloat(i)*2 * twinkleTime/2)
-                colorSequence.addKeyframeValue(
-                    SKColor.yellowColor(), time: (CGFloat(i)*2+1)*twinkleTime/2)
-            }
-            //4
-            emitterNode.particleColorSequence = colorSequence
-            
-            emitterNode.advanceSimulationTime(NSTimeInterval(lifetime))
-            //emitterNode.emissionAngle = CGFloat(M_PI_4)
-            return emitterNode
-    }
+  
+  func starfieldEmitterNode(
+    #speed: CGFloat, lifetime: CGFloat, scale: CGFloat,
+    birthRate: CGFloat, color: SKColor) -> SKEmitterNode {
 
-    func playExplodeSound() {
-        runAction(explodeSound)
-    }
-    func playLaserSound() {
-            runAction(laserSound)
-    }
+    let star = SKLabelNode(fontNamed: "Helvetica")
+    star.fontSize = 80.0
+    star.text = "✦"
     
+    let textureView = SKView()
+    let texture = textureView.textureFromNode(star)
+    texture.filteringMode = .Nearest
+
+    let emitterNode = SKEmitterNode()
+    emitterNode.particleTexture = texture
+    emitterNode.particleBirthRate = birthRate
+    emitterNode.particleColor = color
+    emitterNode.particleLifetime = lifetime
+    emitterNode.particleSpeed = speed
+    emitterNode.particleScale = scale
+    emitterNode.particleColorBlendFactor = 1
+    emitterNode.position =
+      CGPoint(x: CGRectGetMidX(frame), y: CGRectGetMaxY(frame))
+    emitterNode.particlePositionRange =
+      CGVector(dx: CGRectGetMaxX(frame), dy: 0)
+    
+    emitterNode.particleAction =
+      SKAction.repeatActionForever(SKAction.sequence([
+      SKAction.rotateByAngle(CGFloat(-M_PI_4), duration: 1),
+      SKAction.rotateByAngle(CGFloat(M_PI_4), duration: 1)]))
+      
+    emitterNode.particleSpeedRange = 16.0
+
+    //1
+    let twinkles = 20
+    let colorSequence = SKKeyframeSequence(capacity: twinkles*2)
+    //2
+    let twinkleTime = 1.0/CGFloat(twinkles)
+    for i in 0..<twinkles {
+      //3
+      colorSequence.addKeyframeValue(
+      SKColor.whiteColor(),time: CGFloat(i)*2 * twinkleTime/2)
+      colorSequence.addKeyframeValue(
+        SKColor.yellowColor(), time: (CGFloat(i)*2+1)*twinkleTime/2)
+    }
+    //4
+    emitterNode.particleColorSequence = colorSequence
+      
+    emitterNode.advanceSimulationTime(NSTimeInterval(lifetime))
+      
+    return emitterNode
+  }
+  
+  func playExplodeSound() {
+    runAction(explodeSound)
+  }
+  
+  func playLaserSound() {
+    runAction(laserSound)
+  }
 }

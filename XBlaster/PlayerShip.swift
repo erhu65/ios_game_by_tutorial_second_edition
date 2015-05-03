@@ -10,6 +10,8 @@ import SpriteKit
 
 class PlayerShip: Entity {
   
+  let ventingPlasma:SKEmitterNode = SKEmitterNode(fileNamed: "ventingPlasma.sks")
+  
   init(entityPosition: CGPoint) {
     let entityTexture = PlayerShip.generateTexture()!
     
@@ -20,7 +22,9 @@ class PlayerShip: Entity {
     // Details on how the Sprite Kit physics engine works can be found in the book in
     // Chapter 9, "Beginner Physics"
     configureCollisionBody()
-    //createEngine()
+    
+    ventingPlasma.hidden = true
+    addChild(ventingPlasma)
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -84,30 +88,30 @@ class PlayerShip: Entity {
   }
   
   override func collidedWith(body: SKPhysicsBody, contact: SKPhysicsContact) {
-    // This method is called from GameScene didBeginContact(contact:) when the player entity
-    // hits an enemy entity. When that happens the players health is reduced by 5 and a check
-    // makes sure that the health cannot drop below zero
     var mainScene = scene as! GameScene
     mainScene.playExplodeSound()
     
+    // This method is called from GameScene didBeginContact(contact:) when the player entity
+    // hits an enemy entity. When that happens the players health is reduced by 5 and a check
+    // makes sure that the health cannot drop below zero
     health -= 5
     if health < 0 {
       health = 0
     }
+    
+    ventingPlasma.hidden = health > 30
   }
   
+  func createEngine() {
+    let engineEmitter = SKEmitterNode(fileNamed: "engine.sks")
     
-    func createEngine() {
-        let engineEmitter = SKEmitterNode(fileNamed: "engine.sks")
-        
-        engineEmitter.position = CGPoint(x: 1, y: -4)
-        engineEmitter.name = "engineEmitter"
-        addChild(engineEmitter)
-        
-        var mainScene = scene as! GameScene
-        engineEmitter.targetNode = mainScene.particleLayerNode
-        
-    }
+    engineEmitter.position = CGPoint(x: 1, y: -4)
+    engineEmitter.name = "engineEmitter"
+    addChild(engineEmitter)
+    
+    var mainScene = scene as! GameScene
+    engineEmitter.targetNode = mainScene.particleLayerNode
+  }
 
-    
+  
 }
