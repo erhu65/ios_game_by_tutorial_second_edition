@@ -59,6 +59,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
   let particleLayerNode = SKNode()
     
+    let laserSound = SKAction.playSoundFileNamed("laser.wav",
+        waitForCompletion: false)
+    let explodeSound = SKAction.playSoundFileNamed("explode.wav",
+        waitForCompletion: false)
+    
   override init(size: CGSize) {
     // Calculate playable margin
     let maxAspectRatio: CGFloat = 16.0/9.0 // iPhone 5"
@@ -76,6 +81,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     setupSceneLayers()
     setUpUI()
     setupEntities()
+    SKTAudio.sharedInstance().playBackgroundMusic("bgMusic.mp3")
   }
 
   required init(coder aDecoder: NSCoder) {
@@ -310,6 +316,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         // 2: Add to scene
         bulletLayerNode.addChild(bullet)
+        playLaserSound()
         
         // 3: Sequence: Move up screen, remove from parent
         bullet.runAction(SKAction.sequence([
@@ -437,4 +444,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             return emitterNode
     }
 
+    func playExplodeSound() {
+        runAction(explodeSound)
+    }
+    func playLaserSound() {
+            runAction(laserSound)
+    }
+    
 }

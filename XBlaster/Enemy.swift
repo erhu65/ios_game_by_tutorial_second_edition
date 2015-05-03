@@ -201,7 +201,7 @@ class Enemy : Entity {
         }
         deathEmitter.resetSimulation()
         
-        //mainScene.playExplodeSound()
+        mainScene.playExplodeSound()
 
     }
     
