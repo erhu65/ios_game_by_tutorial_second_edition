@@ -20,7 +20,7 @@ class PlayerShip: Entity {
     // Details on how the Sprite Kit physics engine works can be found in the book in
     // Chapter 9, "Beginner Physics"
     configureCollisionBody()
-    createEngine()
+    //createEngine()
   }
 
   required init?(coder aDecoder: NSCoder) {
@@ -101,8 +101,8 @@ class PlayerShip: Entity {
         engineEmitter.name = "engineEmitter"
         addChild(engineEmitter)
         
-//        var mainScene = scene as! GameScene
-//        engineEmitter.targetNode = mainScene.particleLayerNode
+        var mainScene = scene as! GameScene
+        engineEmitter.targetNode = mainScene.particleLayerNode
     }
 
     

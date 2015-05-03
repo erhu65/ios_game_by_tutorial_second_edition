@@ -207,6 +207,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     playerShip = PlayerShip(
       entityPosition: CGPoint(x: size.width / 2, y: 100))
     playerLayerNode.addChild(playerShip)
+    playerShip.createEngine()
     
     // Add some EnemyA entities to the scene
     for _ in 0..<3 {
