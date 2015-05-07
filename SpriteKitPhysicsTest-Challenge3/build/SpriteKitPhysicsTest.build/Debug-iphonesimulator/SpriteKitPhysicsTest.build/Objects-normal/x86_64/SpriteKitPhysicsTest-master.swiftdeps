@@ -1,6 +1,0 @@
-version: "Apple Swift version 1.2 (swiftlang-602.0.49.3 clang-clang-602.0.49)"
-options: "144203b562220b04f8fec9435eb76077"
-inputs: 
-- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/Chapter 9 - Beginner Physics/SpriteKitPhysicsTest-Challenge3/SpriteKitPhysicsTest/GameScene.swift"
-- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/Chapter 9 - Beginner Physics/SpriteKitPhysicsTest-Challenge3/SpriteKitPhysicsTest/GameViewController.swift"
-- "/Users/peter/Dropbox/book/swift/iOS Games by Tutorials Second Edition/Chapter 9 - Beginner Physics/SpriteKitPhysicsTest-Challenge3/SpriteKitPhysicsTest/AppDelegate.swift"
