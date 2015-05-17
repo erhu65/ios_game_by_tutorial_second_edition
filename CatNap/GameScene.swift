@@ -18,6 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     static let Edge:  UInt32 = 0b1000 // 8
     static let Label: UInt32 = 0b10000 // 16
     static let Spring:UInt32 = 0b100000 // 32
+    static let Hook:  UInt32 = 0b1000000 // 64
   }
   
   var bedNode: SKSpriteNode!
@@ -65,7 +66,13 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     catNode.physicsBody!.contactTestBitMask = PhysicsCategory.Bed |
         PhysicsCategory.Edge
+    addHook()
     
+    
+        let rotationConstraint =
+        SKConstraint.zRotation(
+          SKRange(lowerLimit: -π/4, upperLimit: π/4))
+        catNode.constraints = [rotationConstraint]
     
   }
   
@@ -232,6 +239,58 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scene.currentLevel = levelNum
         scene.scaleMode = .AspectFill
         return scene
+    }
+    
+    var hookBaseNode: SKSpriteNode!
+    var hookNode: SKSpriteNode!
+    var hookJoint: SKPhysicsJoint!
+    var ropeNode: SKSpriteNode!
+    
+    func addHook() {
+        hookBaseNode = childNodeWithName("hookBase") as? SKSpriteNode
+        if hookBaseNode == nil {
+            return
+        }
+        
+        let ceilingFix =
+        SKPhysicsJointFixed.jointWithBodyA(hookBaseNode.physicsBody,
+            bodyB: physicsBody, anchor: CGPointZero)
+        physicsWorld.addJoint(ceilingFix)
+        
+//        ropeNode = SKSpriteNode(imageNamed: "rope")
+//        ropeNode.anchorPoint = CGPoint(x: 0, y: 0.5)
+//        ropeNode.zRotation = CGFloat(270).degreesToRadians()
+//        ropeNode.position = hookBaseNode.position
+//        addChild(ropeNode)
+        
+        hookNode = SKSpriteNode(imageNamed: "hook")
+        hookNode.position = CGPoint(
+            x: hookBaseNode.position.x,
+            y: hookBaseNode.position.y - 100)
+        
+        hookNode.physicsBody =
+            SKPhysicsBody(circleOfRadius: hookNode.size.width/2)
+        hookNode.physicsBody!.categoryBitMask = PhysicsCategory.Hook
+        hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.Cat
+        hookNode.physicsBody!.collisionBitMask = PhysicsCategory.None
+        
+        addChild(hookNode)
+//
+        let ropeJoint =
+        SKPhysicsJointSpring.jointWithBodyA(hookBaseNode.physicsBody,
+            bodyB: hookNode.physicsBody,
+            anchorA: hookBaseNode.position,
+            anchorB:
+            CGPoint(x: hookNode.position.x,
+                y: hookNode.position.y+hookNode.size.height/2))
+        physicsWorld.addJoint(ropeJoint)
+//
+//        let range = SKRange(lowerLimit: 0.0, upperLimit: 0.0)
+//        let orientConstraint =
+//        SKConstraint.orientToNode(hookNode, offset: range)
+//        ropeNode.constraints = [orientConstraint]
+//        
+//        hookNode.physicsBody!.applyImpulse(CGVector(dx: 50, dy: 0))
     }
   
 }
