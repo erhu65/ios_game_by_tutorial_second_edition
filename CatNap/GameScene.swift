@@ -64,9 +64,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     catNode.physicsBody!.contactTestBitMask = PhysicsCategory.Bed |
         PhysicsCategory.Edge
-
-    
-    
   }
   
   func sceneTouched(location: CGPoint) {
@@ -105,6 +102,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       //println("FAIL")
       lose()
     }
+    
+    //
+    // MARK: Challenge 1 code
+    //
+    if collision == PhysicsCategory.Label | PhysicsCategory.Edge {
+      let labelNode = contact.bodyA.categoryBitMask == PhysicsCategory.Label ? contact.bodyA.node as! SKLabelNode: contact.bodyB.node as! SKLabelNode
+      
+      if var userData = labelNode.userData {
+        //consequent bounce, keep counting
+        userData["bounceCount"] = (userData["bounceCount"] as! Int) + 1
+        if userData["bounceCount"] as! Int == 4 {
+          labelNode.removeFromParent()
+        }
+      } else {
+        //first bounce, start counting
+        labelNode.userData = NSMutableDictionary(object: 1 as Int, forKey: "bounceCount")
+      }
+    }
+
   }
   
   func inGameMessage(text:String) {
@@ -181,6 +197,15 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       waitForCompletion: false))
   }
 
-  
+    
+    
+    override func didSimulatePhysics() {
+        if let body = catNode.physicsBody {
+            if body.contactTestBitMask != PhysicsCategory.None &&
+                fabs(catNode.zRotation) > CGFloat(45).degreesToRadians() {
+                    lose()
+            }
+        }
+    }
   
 }

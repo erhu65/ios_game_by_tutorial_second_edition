@@ -10,12 +10,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CatNap/GameScene.swift"
-            timestampString = "452704769.572631"
+            timestampString = "453540316.039155"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "31"
-            endingLineNumber = "31"
-            landmarkName = "didMoveToView(_:)"
+            startingLineNumber = "206"
+            endingLineNumber = "206"
+            landmarkName = "didSimulatePhysics()"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

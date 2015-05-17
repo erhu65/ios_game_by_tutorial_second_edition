@@ -5,16 +5,16 @@
 	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
 	<false/>
 	<key>IDESourceControlProjectIdentifier</key>
-	<string>6543285E-0FD3-4D6C-BA2F-57C308A40981</string>
+	<string>9EE5E9DF-B8C5-46AD-B2BC-60354129A87F</string>
 	<key>IDESourceControlProjectName</key>
-	<string>project</string>
+	<string>CatNap</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>0D2BA921FA406EFD2431CF1F5E35297B97CE7236</key>
 		<string>github.com:erhu65/ios_game_by_tutorial_second_edition.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CatNap.xcodeproj/project.xcworkspace</string>
+	<string>CatNap.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>0D2BA921FA406EFD2431CF1F5E35297B97CE7236</key>
