@@ -257,16 +257,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             bodyB: physicsBody, anchor: CGPointZero)
         physicsWorld.addJoint(ceilingFix)
         
-//        ropeNode = SKSpriteNode(imageNamed: "rope")
-//        ropeNode.anchorPoint = CGPoint(x: 0, y: 0.5)
-//        ropeNode.zRotation = CGFloat(270).degreesToRadians()
-//        ropeNode.position = hookBaseNode.position
-//        addChild(ropeNode)
+        ropeNode = SKSpriteNode(imageNamed: "rope")
+        ropeNode.anchorPoint = CGPoint(x: 0, y: 0.5)
+        ropeNode.zRotation = CGFloat(270).degreesToRadians()
+        ropeNode.position = hookBaseNode.position
+        addChild(ropeNode)
         
         hookNode = SKSpriteNode(imageNamed: "hook")
         hookNode.position = CGPoint(
             x: hookBaseNode.position.x,
-            y: hookBaseNode.position.y - 100)
+            y: hookBaseNode.position.y - ropeNode.size.width)
         
         hookNode.physicsBody =
             SKPhysicsBody(circleOfRadius: hookNode.size.width/2)
@@ -285,12 +285,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 y: hookNode.position.y+hookNode.size.height/2))
         physicsWorld.addJoint(ropeJoint)
 //
-//        let range = SKRange(lowerLimit: 0.0, upperLimit: 0.0)
-//        let orientConstraint =
-//        SKConstraint.orientToNode(hookNode, offset: range)
-//        ropeNode.constraints = [orientConstraint]
-//        
-//        hookNode.physicsBody!.applyImpulse(CGVector(dx: 50, dy: 0))
+        let range = SKRange(lowerLimit: 0.0, upperLimit: 0.0)
+        let orientConstraint =
+        SKConstraint.orientToNode(hookNode, offset: range)
+        ropeNode.constraints = [orientConstraint]
+//
+        hookNode.physicsBody!.applyImpulse(CGVector(dx: 50, dy: 0))
     }
   
 }
