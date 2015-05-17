@@ -73,12 +73,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         SKConstraint.zRotation(
           SKRange(lowerLimit: -π/4, upperLimit: π/4))
         catNode.constraints = [rotationConstraint]
-    
+    makeCompoundNode()
   }
+    
+    
+    func releaseHook() {
+        catNode.zRotation = 0
+        hookNode.physicsBody!.contactTestBitMask = PhysicsCategory.None
+        physicsWorld.removeJoint(hookJoint)
+        hookJoint = nil
+    }
   
   func sceneTouched(location: CGPoint) {
     //1
     let targetNode = self.nodeAtPoint(location)
+    println(targetNode)
     //2
     if targetNode.physicsBody == nil {
       return
@@ -109,6 +118,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                 SKAction.removeFromParent()]))
             
             return
+    }
+    
+    
+    if targetNode.physicsBody?.categoryBitMask == PhysicsCategory.Cat
+        && hookJoint != nil {
+            releaseHook()
     }
   }
 
@@ -146,6 +161,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         labelNode.userData = NSMutableDictionary(object: 1 as Int, forKey: "bounceCount")
       }
     }
+    
+    
+    if collision == PhysicsCategory.Cat | PhysicsCategory.Hook {
+        catNode.physicsBody!.velocity = CGVector(dx: 0, dy: 0)
+        catNode.physicsBody!.angularVelocity = 0
+        
+        let pinPoint = CGPoint(
+            x: hookNode.position.x,
+            y: hookNode.position.y + hookNode.size.height/2)
+        
+        hookJoint = SKPhysicsJointFixed.jointWithBodyA(contact.bodyA,
+            bodyB: contact.bodyB, anchor: pinPoint)
+        physicsWorld.addJoint(hookJoint)
+    }
+    
 
   }
   
@@ -226,7 +256,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if let body = catNode.physicsBody {
             if body.contactTestBitMask != PhysicsCategory.None &&
                 fabs(catNode.zRotation) > CGFloat(45).degreesToRadians() {
+                if hookJoint == nil {
                     lose()
+                }
             }
         }
     }
@@ -292,5 +324,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //
         hookNode.physicsBody!.applyImpulse(CGVector(dx: 50, dy: 0))
     }
+    
+    func makeCompoundNode() {
+        let compoundNode = SKNode()
+        compoundNode.zPosition = -1
+        compoundNode.name = "compoundNode"
+        
+        var bodies:[SKPhysicsBody]  = [SKPhysicsBody]()
+        
+        enumerateChildNodesWithName("stone") {node, _ in
+            node.removeFromParent()
+            compoundNode.addChild(node)
+            
+            let body = SKPhysicsBody(rectangleOfSize: node.frame.size,
+                center: node.position)
+            bodies.append(body)
+        }
+//
+        compoundNode.physicsBody = SKPhysicsBody(bodies: bodies)
+        
+        compoundNode.physicsBody!.collisionBitMask = PhysicsCategory.Edge | PhysicsCategory.Cat | PhysicsCategory.Block
+        addChild(compoundNode)
+    }
+    
   
 }

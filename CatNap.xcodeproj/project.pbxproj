@@ -39,6 +39,8 @@
 		9CD365741AD6AEF00043DD5D /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365681AD6AEF00043DD5D /* SKTTimingFunctions.swift */; };
 		9CD365751AD6AEF00043DD5D /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365691AD6AEF00043DD5D /* Vector3.swift */; };
 		D0DB59601B087CC30037F49E /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0DB595F1B087CC20037F49E /* Level2.sks */; };
+		D0DB59641B08BD160037F49E /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0DB59631B08BD160037F49E /* Level3.sks */; };
+		D0DB59661B08BE910037F49E /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0DB59651B08BE910037F49E /* Level3.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +90,8 @@
 		9CD365681AD6AEF00043DD5D /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		9CD365691AD6AEF00043DD5D /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
 		D0DB595F1B087CC20037F49E /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		D0DB59631B08BD160037F49E /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
+		D0DB59651B08BE910037F49E /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,8 @@
 				9CD365201AD6AA3B0043DD5D /* AppDelegate.swift */,
 				9CD365221AD6AA3B0043DD5D /* Level1.sks */,
 				D0DB595F1B087CC20037F49E /* Level2.sks */,
+				D0DB59651B08BE910037F49E /* Level3.sks */,
+				D0DB59631B08BD160037F49E /* Level3.sks */,
 				9CD365241AD6AA3B0043DD5D /* GameScene.swift */,
 				9CD365261AD6AA3B0043DD5D /* GameViewController.swift */,
 				9CD365281AD6AA3B0043DD5D /* Main.storyboard */,
@@ -314,10 +320,12 @@
 				9CD365541AD6AB0D0043DD5D /* background.png in Resources */,
 				9CD365581AD6AB0D0043DD5D /* pop.mp3 in Resources */,
 				9CD365521AD6AB0D0043DD5D /* .BridgeSort in Resources */,
+				D0DB59661B08BE910037F49E /* Level3.sks in Resources */,
 				9CD365551AD6AB0D0043DD5D /* cat_body.png in Resources */,
 				9CD365531AD6AB0D0043DD5D /* background-desat.png in Resources */,
 				9CD365231AD6AA3B0043DD5D /* Level1.sks in Resources */,
 				9CD3652A1AD6AA3B0043DD5D /* Main.storyboard in Resources */,
+				D0DB59641B08BD160037F49E /* Level3.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
