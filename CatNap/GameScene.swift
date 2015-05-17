@@ -17,6 +17,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     static let Bed:   UInt32 = 0b100 // 4
     static let Edge:  UInt32 = 0b1000 // 8
     static let Label: UInt32 = 0b10000 // 16
+    static let Spring:UInt32 = 0b100000 // 32
   }
   
   var bedNode: SKSpriteNode!
@@ -60,10 +61,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     catNode.physicsBody!.categoryBitMask = PhysicsCategory.Cat
     catNode.physicsBody!.collisionBitMask = PhysicsCategory.Block |
-      PhysicsCategory.Edge
+        PhysicsCategory.Edge | PhysicsCategory.Spring
 
     catNode.physicsBody!.contactTestBitMask = PhysicsCategory.Bed |
         PhysicsCategory.Edge
+    
+    
   }
   
   func sceneTouched(location: CGPoint) {
@@ -83,6 +86,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         waitForCompletion: false))
       
       return
+    }
+    
+    
+    if targetNode.physicsBody!.categoryBitMask ==
+        PhysicsCategory.Spring {
+            
+            let spring = targetNode as! SKSpriteNode
+            spring.physicsBody!.applyImpulse(CGVector(dx: 0, dy: 190),
+                atPoint: CGPoint(x: spring.size.width/2,
+                    y: spring.size.height))
+            
+            targetNode.runAction(SKAction.sequence([
+                SKAction.waitForDuration(1),
+                SKAction.removeFromParent()]))
+            
+            return
     }
   }
 
@@ -148,11 +167,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       ]))
   }
 
-  func newGame() {
-    let scene = GameScene(fileNamed:"GameScene")
-    scene.scaleMode = .AspectFill
-    view!.presentScene(scene)
-  }
+    
+    func newGame() {
+        view!.presentScene(GameScene.level(currentLevel))
+    }
   
   func lose() {
     //1
@@ -197,8 +215,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
       waitForCompletion: false))
   }
 
-    
-    
     override func didSimulatePhysics() {
         if let body = catNode.physicsBody {
             if body.contactTestBitMask != PhysicsCategory.None &&
@@ -206,6 +222,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
                     lose()
             }
         }
+    }
+    
+    //1
+    var currentLevel: Int = 0
+    //2
+    class func level(levelNum: Int) -> GameScene? {
+        let scene = GameScene(fileNamed: "Level\(levelNum)")
+        scene.currentLevel = levelNum
+        scene.scaleMode = .AspectFill
+        return scene
     }
   
 }
