@@ -17,5 +17,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // Override point for customization after application launch.
     return true
   }
+    
+    
+    func application(application: UIApplication, supportedInterfaceOrientationsForWindow window: UIWindow?) -> Int {
+        return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
+    }
   
 }

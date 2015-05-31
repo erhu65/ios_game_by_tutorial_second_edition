@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9CB763FA1AD6BEAE00E20D5C /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9CB763F91AD6BEAE00E20D5C /* Level4.sks */; };
+		9CC20C901AD6B4F6003A251F /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20C8F1AD6B4F6003A251F /* Level2.sks */; };
+		9CC20C921AD6B9E9003A251F /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9CC20C911AD6B9E9003A251F /* Level3.sks */; };
 		9CD365211AD6AA3B0043DD5D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365201AD6AA3B0043DD5D /* AppDelegate.swift */; };
 		9CD365231AD6AA3B0043DD5D /* Level1.sks in Resources */ = {isa = PBXBuildFile; fileRef = 9CD365221AD6AA3B0043DD5D /* Level1.sks */; };
 		9CD365251AD6AA3B0043DD5D /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365241AD6AA3B0043DD5D /* GameScene.swift */; };
@@ -38,9 +41,9 @@
 		9CD365731AD6AEF00043DD5D /* SKTEffects.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365671AD6AEF00043DD5D /* SKTEffects.swift */; };
 		9CD365741AD6AEF00043DD5D /* SKTTimingFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365681AD6AEF00043DD5D /* SKTTimingFunctions.swift */; };
 		9CD365751AD6AEF00043DD5D /* Vector3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD365691AD6AEF00043DD5D /* Vector3.swift */; };
-		D0C1578A1B08CD3B001A51A8 /* Level4.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0C157891B08CD3B001A51A8 /* Level4.sks */; };
-		D0DB59601B087CC30037F49E /* Level2.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0DB595F1B087CC20037F49E /* Level2.sks */; };
-		D0DB59661B08BE910037F49E /* Level3.sks in Resources */ = {isa = PBXBuildFile; fileRef = D0DB59651B08BE910037F49E /* Level3.sks */; };
+		D06443361B1AF7530066E2E5 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443351B1AF7530066E2E5 /* Level5.sks */; };
+		D06443391B1AF7610066E2E5 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443371B1AF7610066E2E5 /* Level6.sks */; };
+		D064433A1B1AF7610066E2E5 /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443381B1AF7610066E2E5 /* Level7.sks */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,12 +57,15 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9CB763F91AD6BEAE00E20D5C /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
+		9CC20C8F1AD6B4F6003A251F /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
+		9CC20C911AD6B9E9003A251F /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
 		9CD3651B1AD6AA3B0043DD5D /* CatNap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatNap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9CD3651F1AD6AA3B0043DD5D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9CD365201AD6AA3B0043DD5D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9CD365221AD6AA3B0043DD5D /* Level1.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level1.sks; sourceTree = "<group>"; };
 		9CD365241AD6AA3B0043DD5D /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		9CD365261AD6AA3B0043DD5D /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
+		9CD365261AD6AA3B0043DD5D /* GameViewController.swift */ = {isa = PBXFileReference; indentWidth = 2; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; tabWidth = 2; };
 		9CD365291AD6AA3B0043DD5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9CD3652B1AD6AA3B0043DD5D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9CD3652E1AD6AA3B0043DD5D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -89,9 +95,9 @@
 		9CD365671AD6AEF00043DD5D /* SKTEffects.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTEffects.swift; sourceTree = "<group>"; };
 		9CD365681AD6AEF00043DD5D /* SKTTimingFunctions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SKTTimingFunctions.swift; sourceTree = "<group>"; };
 		9CD365691AD6AEF00043DD5D /* Vector3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector3.swift; sourceTree = "<group>"; };
-		D0C157891B08CD3B001A51A8 /* Level4.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level4.sks; sourceTree = "<group>"; };
-		D0DB595F1B087CC20037F49E /* Level2.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level2.sks; sourceTree = "<group>"; };
-		D0DB59651B08BE910037F49E /* Level3.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level3.sks; sourceTree = "<group>"; };
+		D06443351B1AF7530066E2E5 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
+		D06443371B1AF7610066E2E5 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
+		D06443381B1AF7610066E2E5 /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level7.sks; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,12 +145,15 @@
 				9CD3654E1AD6AB0D0043DD5D /* sprites.atlas */,
 				9CD3654F1AD6AB0D0043DD5D /* Videos */,
 				9CD365201AD6AA3B0043DD5D /* AppDelegate.swift */,
-				9CD365221AD6AA3B0043DD5D /* Level1.sks */,
-				D0DB595F1B087CC20037F49E /* Level2.sks */,
-				D0DB59651B08BE910037F49E /* Level3.sks */,
-				D0C157891B08CD3B001A51A8 /* Level4.sks */,
 				9CD365241AD6AA3B0043DD5D /* GameScene.swift */,
 				9CD365261AD6AA3B0043DD5D /* GameViewController.swift */,
+				9CD365221AD6AA3B0043DD5D /* Level1.sks */,
+				9CC20C8F1AD6B4F6003A251F /* Level2.sks */,
+				9CC20C911AD6B9E9003A251F /* Level3.sks */,
+				9CB763F91AD6BEAE00E20D5C /* Level4.sks */,
+				D06443351B1AF7530066E2E5 /* Level5.sks */,
+				D06443371B1AF7610066E2E5 /* Level6.sks */,
+				D06443381B1AF7610066E2E5 /* Level7.sks */,
 				9CD365281AD6AA3B0043DD5D /* Main.storyboard */,
 				9CD3652B1AD6AA3B0043DD5D /* Images.xcassets */,
 				9CD3652D1AD6AA3B0043DD5D /* LaunchScreen.xib */,
@@ -311,7 +320,7 @@
 				9CD3652F1AD6AA3B0043DD5D /* LaunchScreen.xib in Resources */,
 				9CD365571AD6AB0D0043DD5D /* lose.mp3 in Resources */,
 				9CD3655B1AD6AB0D0043DD5D /* BookTrailer.m4v in Resources */,
-				D0DB59601B087CC30037F49E /* Level2.sks in Resources */,
+				9CC20C901AD6B4F6003A251F /* Level2.sks in Resources */,
 				9CD3652C1AD6AA3B0043DD5D /* Images.xcassets in Resources */,
 				9CD365591AD6AB0D0043DD5D /* win.mp3 in Resources */,
 				9CD3655A1AD6AB0D0043DD5D /* sprites.atlas in Resources */,
@@ -320,12 +329,15 @@
 				9CD365541AD6AB0D0043DD5D /* background.png in Resources */,
 				9CD365581AD6AB0D0043DD5D /* pop.mp3 in Resources */,
 				9CD365521AD6AB0D0043DD5D /* .BridgeSort in Resources */,
-				D0DB59661B08BE910037F49E /* Level3.sks in Resources */,
+				D06443361B1AF7530066E2E5 /* Level5.sks in Resources */,
 				9CD365551AD6AB0D0043DD5D /* cat_body.png in Resources */,
+				D064433A1B1AF7610066E2E5 /* Level7.sks in Resources */,
 				9CD365531AD6AB0D0043DD5D /* background-desat.png in Resources */,
 				9CD365231AD6AA3B0043DD5D /* Level1.sks in Resources */,
 				9CD3652A1AD6AA3B0043DD5D /* Main.storyboard in Resources */,
-				D0C1578A1B08CD3B001A51A8 /* Level4.sks in Resources */,
+				9CC20C921AD6B9E9003A251F /* Level3.sks in Resources */,
+				9CB763FA1AD6BEAE00E20D5C /* Level4.sks in Resources */,
+				D06443391B1AF7610066E2E5 /* Level6.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

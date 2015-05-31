@@ -25,25 +25,27 @@ extension SKNode {
   }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, ImageCaptureDelegate, UIImagePickerControllerDelegate,
+UINavigationControllerDelegate{
   
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let scene = GameScene.level(4) {
-        // Configure the view.
-        let skView = self.view as! SKView
-        skView.showsPhysics = true
-        skView.showsFPS = true
-        skView.showsNodeCount = true
-        
-        /* Sprite Kit applies additional optimizations to improve rendering performance */
-        skView.ignoresSiblingOrder = false
-        
-        /* Set the scale mode to scale to fit the window */
-        scene.scaleMode = .AspectFill
-        
-        skView.presentScene(scene)
+    if let scene = GameScene.level(5) {
+      // Configure the view.
+      let skView = self.view as! SKView
+      skView.showsPhysics = true
+      skView.showsFPS = true
+      skView.showsNodeCount = true
+      
+      /* Sprite Kit applies additional optimizations to improve rendering performance */
+      skView.ignoresSiblingOrder = false
+      
+      /* Set the scale mode to scale to fit the window */
+      scene.scaleMode = .AspectFill
+      
+      skView.presentScene(scene)
+      scene.imageCaptureDelegate = self
     }
   }
   
@@ -66,5 +68,31 @@ class GameViewController: UIViewController {
   
   override func prefersStatusBarHidden() -> Bool {
     return true
+  }
+  
+  
+  func requestImagePicker() {
+    let imagePickerControlller = UIImagePickerController()
+    imagePickerControlller.delegate = self
+    presentViewController(imagePickerControlller, animated: true, completion: nil)
+  }
+  
+  
+  func imagePickerController(picker: UIImagePickerController,
+    didFinishPickingMediaWithInfo info: [NSObject:AnyObject]) {
+      //1
+      let image =
+      info[UIImagePickerControllerOriginalImage] as! UIImage
+      //2
+      picker.dismissViewControllerAnimated(true, completion: {
+        //3
+        let imageTexture = SKTexture(image: image)
+        //4
+        let skView = self.view as! SKView
+        let gameScene = skView.scene as! GameScene
+        //place core image code here
+        //5
+        gameScene.changePhotoTexture(imageTexture)
+      })
   }
 }
