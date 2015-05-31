@@ -44,6 +44,7 @@
 		D06443361B1AF7530066E2E5 /* Level5.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443351B1AF7530066E2E5 /* Level5.sks */; };
 		D06443391B1AF7610066E2E5 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443371B1AF7610066E2E5 /* Level6.sks */; };
 		D064433A1B1AF7610066E2E5 /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443381B1AF7610066E2E5 /* Level7.sks */; };
+		D064433C1B1B049B0066E2E5 /* OldTVNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064433B1B1B049B0066E2E5 /* OldTVNode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -98,6 +99,7 @@
 		D06443351B1AF7530066E2E5 /* Level5.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level5.sks; sourceTree = "<group>"; };
 		D06443371B1AF7610066E2E5 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
 		D06443381B1AF7610066E2E5 /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level7.sks; sourceTree = "<group>"; };
+		D064433B1B1B049B0066E2E5 /* OldTVNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldTVNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +148,7 @@
 				9CD3654F1AD6AB0D0043DD5D /* Videos */,
 				9CD365201AD6AA3B0043DD5D /* AppDelegate.swift */,
 				9CD365241AD6AA3B0043DD5D /* GameScene.swift */,
+				D064433B1B1B049B0066E2E5 /* OldTVNode.swift */,
 				9CD365261AD6AA3B0043DD5D /* GameViewController.swift */,
 				9CD365221AD6AA3B0043DD5D /* Level1.sks */,
 				9CC20C8F1AD6B4F6003A251F /* Level2.sks */,
@@ -364,6 +367,7 @@
 				9CD3656E1AD6AEF00043DD5D /* SKAction+Extensions.swift in Sources */,
 				9CD365701AD6AEF00043DD5D /* SKColor+Extensions.swift in Sources */,
 				9CD365271AD6AA3B0043DD5D /* GameViewController.swift in Sources */,
+				D064433C1B1B049B0066E2E5 /* OldTVNode.swift in Sources */,
 				9CD3656D1AD6AEF00043DD5D /* Int+Extensions.swift in Sources */,
 				9CD365711AD6AEF00043DD5D /* SKNode+Extensions.swift in Sources */,
 				9CD365721AD6AEF00043DD5D /* SKTAudio.swift in Sources */,

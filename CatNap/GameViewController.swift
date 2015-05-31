@@ -31,7 +31,7 @@ UINavigationControllerDelegate{
   override func viewDidLoad() {
     super.viewDidLoad()
     
-    if let scene = GameScene.level(5) {
+    if let scene = GameScene.level(6) {
       // Configure the view.
       let skView = self.view as! SKView
       skView.showsPhysics = true

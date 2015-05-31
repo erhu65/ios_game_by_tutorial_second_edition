@@ -11,9 +11,7 @@ protocol ImageCaptureDelegate {
     func requestImagePicker()
 }
 
-class GameScene: SKScene, SKPhysicsContactDelegate {
-  
-  struct PhysicsCategory {
+struct PhysicsCategory {
     static let None:  UInt32 = 0
     static let Cat:   UInt32 = 0b1   // 1
     static let Block: UInt32 = 0b10  // 2
@@ -22,7 +20,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     static let Label: UInt32 = 0b10000 // 16
     static let Spring:UInt32 = 0b100000 // 32
     static let Hook:  UInt32 = 0b1000000 // 64
-  }
+}
+
+class GameScene: SKScene, SKPhysicsContactDelegate {
+
   
   var bedNode: SKSpriteNode!
   var catNode: SKSpriteNode!
@@ -101,6 +102,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     enumerateChildNodesWithName("PhotoFrameNode") {node, _ in
         self.addPhotoToFrame(node as! SKSpriteNode)
     }
+    
+//    let tvNode = OldTVNode(frame: CGRectMake(20, 500, 300, 300))
+//    addChild(tvNode)
+    
+    let tvNodes = (children as! [SKNode]).filter ({node in
+        return node.name == .Some("TVNode")
+    })
+    
+    for node in tvNodes {
+        let tvNode = OldTVNode(frame: node.frame)
+        self.addChild(tvNode)
+        node.removeFromParent()
+    }
   }
   
   func sceneTouched(location: CGPoint) {
@@ -110,9 +124,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let nodes = self.nodesAtPoint(location) as! [SKNode]
     for node in nodes {
         if let nodeName = node.name {
-            if nodeName == "PhotoFrameNode" {
+            if nodeName == "PhotoFrameNode" || nodeName == "TVNode"{
                 //1
                 targetNode = node
+        
+            if nodeName == "TVNode" {
+                break
+            }
+        
                 //2
                 if !photoChanged { //3
                     imageCaptureDelegate?.requestImagePicker()
@@ -271,7 +290,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func win() {
-    if (currentLevel < 5) {
+    if (currentLevel < 6) {
       currentLevel++
     }
     
