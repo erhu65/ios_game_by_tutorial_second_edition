@@ -15,6 +15,7 @@ import SpriteKit
 class OldTVNode : SKSpriteNode {
     let player: AVPlayer
     let videoNode: SKVideoNode
+    var notificationObserver : AnyObject?
     
     required init(coder: NSCoder) {
         fatalError("NSCoding not supported")
@@ -22,7 +23,7 @@ class OldTVNode : SKSpriteNode {
 
     init(frame: CGRect) {
         //1
-        let filePath = NSBundle.mainBundle().pathForResource("BookTrailer", ofType: "m4v")
+        let filePath = NSBundle.mainBundle().pathForResource("loop", ofType: "mov")
         let fileURL = NSURL(fileURLWithPath: filePath!)
         //2
         player = AVPlayer.playerWithURL(fileURL) as! AVPlayer
@@ -48,6 +49,18 @@ class OldTVNode : SKSpriteNode {
         self.size = frame.size
         //8
         player.volume = 0.0
+        
+        let notificationCenter = NSNotificationCenter.defaultCenter()
+        let mainQueue = NSOperationQueue.mainQueue()
+        let notificationName = AVPlayerItemDidPlayToEndTimeNotification
+        
+        player.actionAtItemEnd = .None
+        notificationObserver = notificationCenter.addObserverForName(notificationName, object: nil, queue: mainQueue) { _ in
+            self.player.seekToTime(kCMTimeZero)
+        }
+        
+    
+        
         
         self.physicsBody = SKPhysicsBody(
             rectangleOfSize: CGRectInset(frame, 2, 2).size)
