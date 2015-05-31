@@ -115,6 +115,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(tvNode)
         node.removeFromParent()
     }
+    
+    
+    let shapeNodes = (children as! [SKNode]).filter ({node in
+        return node.name == .Some("Shape")
+        })
+    for node in shapeNodes {
+            let shapeNode = makeWonkyBlockFromShapeNode(node as! SKShapeNode)
+            addChild(shapeNode)
+            node.removeFromParent()
+    }
+    
+    
+    
   }
   
   func sceneTouched(location: CGPoint) {
@@ -290,7 +303,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
   }
   
   func win() {
-    if (currentLevel < 6) {
+    if (currentLevel < 7) {
       currentLevel++
     }
     
@@ -477,4 +490,90 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             photoChanged = true
     }
 
+    
+    
+    func adjustedPoint(inputPoint: CGPoint, inputSize: CGSize)
+            -> CGPoint {
+            //1
+            let width = inputSize.width * 0.15
+            let height = inputSize.height * 0.15
+            //2
+            let xMove = width * CGFloat.random() - width / 2.0
+            let yMove = height * CGFloat.random() - height / 2.0
+            //3
+            let move = CGPoint(x: xMove, y: yMove)
+            //4
+            return inputPoint + move
+    }
+    
+    
+    func makeWonkyBlockFromShapeNode(shapeNode: SKShapeNode) -> SKShapeNode {
+        //1
+        let newShapeNode = SKShapeNode()
+        //2
+        let originalRect = shapeNode.frame
+        //3
+        var leftTop = CGPoint(x: CGRectGetMinX(originalRect),
+                y: CGRectGetMaxY(originalRect))
+        var leftBottom = originalRect.origin
+        var rightBottom = CGPoint(x: CGRectGetMaxX(originalRect),
+                y: CGRectGetMinY(originalRect))
+        var rightTop = CGPoint(x: CGRectGetMaxX(originalRect),
+                y: CGRectGetMaxY(originalRect))
+        //4
+        let size = originalRect.size
+        leftTop = adjustedPoint(leftTop, inputSize: size)
+        leftBottom = adjustedPoint(leftBottom, inputSize: size)
+        rightBottom = adjustedPoint(rightBottom, inputSize: size)
+        rightTop = adjustedPoint(rightTop, inputSize: size)
+        
+        //5
+        let bezierPath = CGPathCreateMutable()
+        CGPathMoveToPoint(bezierPath, nil, leftTop.x, leftTop.y)
+        CGPathAddLineToPoint(
+            bezierPath, nil, leftBottom.x, leftBottom.y)
+        CGPathAddLineToPoint(
+            bezierPath, nil, rightBottom.x, rightBottom.y)
+        CGPathAddLineToPoint(bezierPath, nil, rightTop.x, rightTop.y)
+        //6
+        CGPathCloseSubpath(bezierPath)
+        //7
+        newShapeNode.path = bezierPath
+        //8
+        leftTop -= CGPoint(x: -2, y: 2)
+        leftBottom -= CGPoint(x: -2, y: -2)
+        rightBottom -= CGPoint(x: 2, y: -2)
+        rightTop -= CGPoint(x: 2, y: 2)
+        //9
+        let physicsBodyPath = CGPathCreateMutable()
+        CGPathMoveToPoint(physicsBodyPath, nil, leftTop.x, leftTop.y)
+        CGPathAddLineToPoint(
+            physicsBodyPath, nil, leftBottom.x, leftBottom.y)
+        CGPathAddLineToPoint(
+            physicsBodyPath, nil, rightBottom.x, rightBottom.y)
+        CGPathAddLineToPoint(
+            physicsBodyPath, nil, rightTop.x, rightTop.y)
+        //10
+        CGPathCloseSubpath(physicsBodyPath)
+        //11
+        newShapeNode.physicsBody =
+            SKPhysicsBody(polygonFromPath: physicsBodyPath)
+        newShapeNode.physicsBody!.categoryBitMask =
+            PhysicsCategory.Block
+        newShapeNode.physicsBody!.collisionBitMask =
+            PhysicsCategory.Block | PhysicsCategory.Cat |
+            PhysicsCategory.Edge
+        //12
+        newShapeNode.lineWidth = 1.0
+        newShapeNode.fillColor =
+            SKColor(red: 0.73, green: 0.73, blue: 1.0, alpha: 1.0)
+        newShapeNode.strokeColor =
+                SKColor(red: 0.165, green: 0.165, blue: 0.0, alpha: 1.0)
+        newShapeNode.glowWidth = 1.0
+        //13
+        newShapeNode.fillTexture = SKTexture(imageNamed: "wood_texture")
+        return newShapeNode
+    }
+
+    
 }

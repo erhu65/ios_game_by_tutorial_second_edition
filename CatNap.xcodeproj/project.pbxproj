@@ -45,6 +45,7 @@
 		D06443391B1AF7610066E2E5 /* Level6.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443371B1AF7610066E2E5 /* Level6.sks */; };
 		D064433A1B1AF7610066E2E5 /* Level7.sks in Resources */ = {isa = PBXBuildFile; fileRef = D06443381B1AF7610066E2E5 /* Level7.sks */; };
 		D064433C1B1B049B0066E2E5 /* OldTVNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D064433B1B1B049B0066E2E5 /* OldTVNode.swift */; };
+		D064433E1B1B13730066E2E5 /* wood_texture.png in Resources */ = {isa = PBXBuildFile; fileRef = D064433D1B1B13730066E2E5 /* wood_texture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -100,6 +101,7 @@
 		D06443371B1AF7610066E2E5 /* Level6.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level6.sks; sourceTree = "<group>"; };
 		D06443381B1AF7610066E2E5 /* Level7.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = Level7.sks; sourceTree = "<group>"; };
 		D064433B1B1B049B0066E2E5 /* OldTVNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OldTVNode.swift; sourceTree = "<group>"; };
+		D064433D1B1B13730066E2E5 /* wood_texture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = wood_texture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +159,7 @@
 				D06443351B1AF7530066E2E5 /* Level5.sks */,
 				D06443371B1AF7610066E2E5 /* Level6.sks */,
 				D06443381B1AF7610066E2E5 /* Level7.sks */,
+				D064433D1B1B13730066E2E5 /* wood_texture.png */,
 				9CD365281AD6AA3B0043DD5D /* Main.storyboard */,
 				9CD3652B1AD6AA3B0043DD5D /* Images.xcassets */,
 				9CD3652D1AD6AA3B0043DD5D /* LaunchScreen.xib */,
@@ -332,6 +335,7 @@
 				9CD365541AD6AB0D0043DD5D /* background.png in Resources */,
 				9CD365581AD6AB0D0043DD5D /* pop.mp3 in Resources */,
 				9CD365521AD6AB0D0043DD5D /* .BridgeSort in Resources */,
+				D064433E1B1B13730066E2E5 /* wood_texture.png in Resources */,
 				D06443361B1AF7530066E2E5 /* Level5.sks in Resources */,
 				9CD365551AD6AB0D0043DD5D /* cat_body.png in Resources */,
 				D064433A1B1AF7610066E2E5 /* Level7.sks in Resources */,
